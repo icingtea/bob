@@ -5,11 +5,6 @@ from langchain_core.messages import AIMessage, HumanMessage
 from pydantic import BaseModel
 
 
-class ResponseSchema(BaseModel):
-    country: str
-    city: str
-
-
 class LLM:
     def __init__(self, model_name: str, system_prompt: str):
         tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
@@ -64,9 +59,3 @@ class LLM:
         )
 
         return result
-
-    response = llm.prompt_model(user_prompt)
-
-
-if __name__ == "__main__":
-    main()

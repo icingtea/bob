@@ -2,7 +2,6 @@
 prompt-inferred filter models to assemble into a db aggregation/query
 """
 
-
 from datetime import date
 from typing import List, Optional
 from pydantic import BaseModel, Field
