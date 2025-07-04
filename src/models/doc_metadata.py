@@ -1,9 +1,19 @@
+"""
+metadata models to include in db chunks
+"""
+
+
 from datetime import date
 from enum import Enum
+from typing import List, Optional
 from pydantic import BaseModel
-from typing import List, Optional 
+
 
 class Weekday(str, Enum):
+    """
+    weekday enum for menus
+    """
+
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
     WEDNESDAY = "Wednesday"
@@ -12,9 +22,22 @@ class Weekday(str, Enum):
     SATURDAY = "Saturday"
     SUNDAY = "Sunday"
 
+
+class SourceType(str, Enum):
+    """
+    document source enum
+    """
+
+    EMAIL = "EMAIL"
+    MENU = "MENU"
+    PROSPECTUS = "PROSPECTUS"
+
+
 class EmailMetadata(BaseModel):
-    document_id: str
-    source_type: str = "email"
+    """
+    email information
+    """
+
     sender: Optional[str] = None
     recipient_group: Optional[str] = None
     subject: Optional[str] = None
@@ -23,14 +46,28 @@ class EmailMetadata(BaseModel):
 
 
 class MenuMetadata(BaseModel):
-    document_id: str
-    source_type: str = "menu"
+    """
+    menu information
+    """
+
     week_start_date: Optional[date] = None
     day_of_week: Optional[Weekday] = None
 
-# TODO: Make concrete implementation
+
 class PropsectusMetadata(BaseModel):
-    document_id: str
-    source_type: str = "prospectus"
+    """
+    prospectus information
+    """
+
     school: Optional[str] = None
     department: Optional[str] = None
+
+
+class DocumentMetadata(BaseModel):
+    """
+    general metadata model
+    """
+
+    document_id: str
+    source_type: SourceType
+    metadata: EmailMetadata | PropsectusMetadata | MenuMetadata
