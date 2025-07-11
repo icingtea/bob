@@ -1,11 +1,8 @@
-"""
-graph state model
-"""
-
 from typing import Annotated, Optional, List
 from pydantic import BaseModel
-from doc_metadata import DocumentMetadata, SourceType
 from langgraph.graph.message import add_messages
+
+from models.metadata import DocumentMetadata, SourceType
 
 
 class State(BaseModel):
