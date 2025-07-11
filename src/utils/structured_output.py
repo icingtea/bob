@@ -1,8 +1,8 @@
-from typing import Any, List, Union
 import transformers
 import outlines
 from langchain_core.messages import AIMessage, HumanMessage
-from pydantic import BaseModel
+from typing import Any, List, Union
+# from pydantic import BaseModel
 
 
 class LLM:
