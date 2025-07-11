@@ -11,7 +11,6 @@ dependencies = [
   "outlines[transformers]>=1.0.3",
   "pydantic>=2.11.7",
   "sentence-transformers>=5.0.0",
-  "surrealdb>=1.0.4",
   "torch>=2.7.0",
   "transformers>=4.53.0",
 ]

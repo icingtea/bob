@@ -24,7 +24,7 @@ class MenuMetadataFilter(BaseModel):
     Filter model for Menu metadata
     """
 
-    week_start_date_filter: str
+    week_start_date_filter: date
 
 
 class ProspectusMetadataFilter(BaseModel):
